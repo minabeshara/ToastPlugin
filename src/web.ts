@@ -7,4 +7,9 @@ export class MyToastWeb extends WebPlugin implements MyToastPlugin {
     console.log('ECHO', options);
     return options;
   }
+
+  async showToast(): Promise<void>{
+    console.log('msg')
+  }
+ 
 }

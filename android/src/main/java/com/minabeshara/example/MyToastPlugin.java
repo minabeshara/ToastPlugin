@@ -1,5 +1,7 @@
 package com.minabeshara.example;
 
+import android.widget.Toast;
+
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
 import com.getcapacitor.PluginCall;
@@ -19,4 +21,11 @@ public class MyToastPlugin extends Plugin {
         ret.put("value", implementation.echo(value));
         call.resolve(ret);
     }
+
+    @PluginMethod
+    public void showToast(PluginCall call){
+        implementation.showToast(this.getActivity().getApplicationContext());
+        call.resolve();
+    }
+
 }

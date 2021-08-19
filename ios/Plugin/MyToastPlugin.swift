@@ -15,4 +15,17 @@ public class MyToastPlugin: CAPPlugin {
             "value": implementation.echo(value)
         ])
     }
+
+    @objc func showToast(_ call: CAPPluginCall){
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+// 
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = "ios";
+        hud.margin = 10.f;
+        hud.yOffset = 150.f;
+        hud.removeFromSuperViewOnHide = YES;
+
+        [hud hideAnimated:YES afterDelay:3];
+        call.resolve();
+    }
 }
